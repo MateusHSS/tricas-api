@@ -28,7 +28,16 @@ export class AlterDespesa1739924818514 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('despesa', 'fk_despesa_categoria_id');
-    await queryRunner.dropColumn('despesa', 'categoria_id');
+    const table = await queryRunner.getTable('despesa');
+
+    const foreignKey = table.foreignKeys.find((fk) =>
+      fk.columnNames.includes('categoria_id'),
+    );
+
+    if (foreignKey) {
+      await queryRunner.dropForeignKey('despesa', foreignKey);
+    } else {
+      throw new Error('Foreign key não encontrada!');
+    }
   }
 }

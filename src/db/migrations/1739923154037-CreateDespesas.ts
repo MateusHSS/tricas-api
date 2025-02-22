@@ -21,8 +21,10 @@ export class CreateDespesas1739923154037 implements MigrationInterface {
           },
           {
             name: 'valor',
-            type: 'float',
+            type: 'decimal',
             isNullable: false,
+            precision: 10,
+            scale: 2,
           },
         ],
       }),
