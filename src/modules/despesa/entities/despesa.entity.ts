@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { DespesaCategoria } from './despesa_categoria.entity.ts';
+import { DespesaCategoria } from './despesa_categoria.entity';
 
 @Entity()
 export class Despesa {

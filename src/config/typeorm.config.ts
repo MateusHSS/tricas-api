@@ -14,5 +14,5 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   entities: [Despesa, DespesaCategoria],
   synchronize: process.env.NODE_ENV !== 'prd' ? true : false,
-  migrations: ['src/db/migrations/*.ts'],
+  migrations: ['src/db/migrations/*.js'],
 });
