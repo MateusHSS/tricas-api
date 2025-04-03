@@ -2,7 +2,7 @@ name: Publica imagem docker
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   push_to_registry:
